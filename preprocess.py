@@ -6,8 +6,6 @@ import numpy as np
 #from tensorflow.keras.preprocessing.text import one_hot
 #from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-from sklearn.feature_extraction.text import CountVectorizer
-
 
 import nltk 
 nltk.download('stopwords')

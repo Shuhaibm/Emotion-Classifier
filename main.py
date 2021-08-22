@@ -7,7 +7,7 @@ import numpy as np
 from preprocess import prepare_data
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
-from myModels import my_naive_bayes,my_random_forest,my_log_reg,my_lin_reg,my_return_the_mode, my_ensemble,my_stacking,my_stacking_concatenated
+from myModels import my_naive_bayes,my_random_forest,my_log_reg,my_stacking_concatenated
 
 
 #Get data
