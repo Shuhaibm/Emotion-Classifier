@@ -1,17 +1,12 @@
+import nltk
+nltk.download('punkt')
 from nltk.tokenize import word_tokenize
-
+nltk.download('stopwords')
+from nltk.corpus import stopwords
 
 import re
 import numpy as np
-#from tensorflow.keras.preprocessing.text import one_hot
-#from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-from sklearn.feature_extraction.text import CountVectorizer
-
-
-import nltk 
-nltk.download('stopwords')
-from nltk.corpus import stopwords
 
 def prepare_data(data):
     stop_words = set(stopwords.words('english'))

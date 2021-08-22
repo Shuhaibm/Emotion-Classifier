@@ -1,13 +1,14 @@
 from flask import Flask
 from flask import request
+from threading import Thread
 
 import pandas
-import numpy as np
 
 from preprocess import prepare_data
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
-from myModels import my_naive_bayes,my_random_forest,my_log_reg,my_lin_reg,my_return_the_mode, my_ensemble,my_stacking,my_stacking_concatenated
+from myModels import my_naive_bayes,my_random_forest,my_log_reg,my_stacking_concatenated
+
 
 
 #Get data
@@ -53,12 +54,19 @@ stacking_model_concat.train_and_score(X_test, y_test)
 
 print("End Training")
 
-app = Flask(__name__)
+app = Flask('')
+
 @app.route("/")
+def home():
+  return "Welcome to my Emotion Classifier API! You can use it to find the emotion for a string. It will classify the string as one of sadness, surprise, fear, anger, joy, love. Sample get request: emotion-classifier.shuhaibmehri.repl.co/classifyemotion?string=I%27m%20so%20excited%20to%20try%20this%20out"
+
+@app.route("/classifyemotion")
 def find_emotion():
-    word = request.args.get('word')
+    word = request.args.get('string')
     return stacking_model_concat.predictInput(word, cv)[0]
 
+def run():
+  app.run(host='0.0.0.0',port=7000)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+t = Thread(target = run)
+t.start()
