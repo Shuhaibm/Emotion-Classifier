@@ -56,7 +56,7 @@ app = Flask(__name__)
 @app.route("/")
 def find_emotion():
     word = request.args.get('word')
-    return stacking_model_concat.predictInput(word, cv)[0]
+    return jsonify({"emotion":stacking_model_concat.predictInput(word, cv)[0]})
 
 
 if __name__ == '__main__':
