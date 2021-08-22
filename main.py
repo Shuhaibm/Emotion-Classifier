@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask import request
 from threading import Thread
 
@@ -63,7 +63,7 @@ def home():
 @app.route("/classifyemotion")
 def find_emotion():
     word = request.args.get('string')
-    return stacking_model_concat.predictInput(word, cv)[0]
+    return jsonify({"emotion":stacking_model_concat.predictInput(word, cv)[0]})
 
 def run():
   app.run(host='0.0.0.0',port=7000)
