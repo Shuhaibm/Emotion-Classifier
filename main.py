@@ -53,12 +53,11 @@ stacking_model_concat.predictInput("whats good brother", cv)
 
 
 
-    
+
 app = Flask(__name__)
 @app.route("/")
 def find_emotion():
     word = request.args.get('word')
-    
     return stacking_model_concat.predictInput(word, cv)[0]
 
 
