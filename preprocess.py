@@ -3,8 +3,8 @@ from nltk.tokenize import word_tokenize
 
 import re
 import numpy as np
-from tensorflow.keras.preprocessing.text import one_hot
-from tensorflow.keras.preprocessing.sequence import pad_sequences
+#from tensorflow.keras.preprocessing.text import one_hot
+#from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 from sklearn.feature_extraction.text import CountVectorizer
 
@@ -47,9 +47,9 @@ def one_hot_encoding_version1(tokenized_data,mapping):
 
     return one_hot_encoding
 
-def one_hot_encoding_version2(tokenized_data):
-    one_hot_encoding = [one_hot(input_text=sentence, n=1000) for sentence in tokenized_data]
-    final_data = pad_sequences(sequences=one_hot_encoding,
-                              maxlen=150,
-                              padding="pre")
-    return final_data
+#def one_hot_encoding_version2(tokenized_data):
+#    one_hot_encoding = [one_hot(input_text=sentence, n=1000) for sentence in tokenized_data]
+#    final_data = pad_sequences(sequences=one_hot_encoding,
+#                              maxlen=150,
+#                              padding="pre")
+#    return final_data

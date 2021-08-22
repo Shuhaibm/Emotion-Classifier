@@ -48,8 +48,6 @@ base_models = [nb,rf,lr]
 #Stacking where X_meta is concatenated with base_predictions: 90.55% Accuracy
 stacking_model_concat = my_stacking_concatenated(base_models)
 stacking_model_concat.train_and_score(X_test, y_test)
-stacking_model_concat.predictInput("whats good brother", cv)
-
 
 
 
