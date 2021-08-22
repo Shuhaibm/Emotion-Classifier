@@ -27,6 +27,7 @@ y = df['Emotion'].values
 
 X_train,X_test,y_train,y_test = train_test_split(X,y,random_state=0)
 
+print("Start Training")
 
 #Base Models
 
@@ -52,7 +53,7 @@ stacking_model_concat.predictInput("whats good brother", cv)
 
 
 
-
+print("End Training")
 
 app = Flask(__name__)
 @app.route("/")
