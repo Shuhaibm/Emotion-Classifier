@@ -36,7 +36,6 @@ def prepare_data(data):
 
 
 
-
 def one_hot_encoding_version1(tokenized_data,mapping):    
     
     one_hot_encoding = np.zeros((len(tokenized_data),len(mapping)))
