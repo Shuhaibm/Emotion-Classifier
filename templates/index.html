@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+
+<head>
+    
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+
+
+    <script src="index.js"></script>
+</head>
+<body>
+
+    <div class="title">
+        <h1 class="title"><b>Emotion Classifier</b></h1>
+    </div>
+
+    <div class="left">
+        <h3 class="title">
+            About
+        </h3>
+        <p>
+            Welcome to my Emotion Classifier REST API!
+
+            It can be used to find the emotion of a string. It will classify the string as one of the following:
+        <ul>
+            <li>sadness</li>
+            <li>surprise</li>
+            <li>fear</li>
+            <li>anger</li>
+            <li>joy</li>
+            <li>love</li>
+        </ul>
+        <br>
+        It is a Stacking Ensemble Model with 90.55% accuracy:
+        <ul>
+            <li>Base Models: Naïve Bayes, Random Forest as well as Logistic Regression for the Base Models</li>
+            <li>Meta Model: Random Forest, data concatenated with base model predictions</li>
+        </ul>
+        </p>
+        <br>
+        <br>
+    </div>
+
+
+    <div class="right">
+
+        <h3 class="title">
+            Try it out!
+        </h3>
+
+        <p>
+            Sample get request:
+            <br>
+            emotion-classifier.shuhaibmehri.repl.co/api?string=ENTER_STRING_HERE
+        </p>
+        <br>
+
+        <script>
+            function onSubmit() {
+                link = "api?string=" + document.getElementById("inputString").value;
+                console.log(link);
+                window.open(link);
+            }
+        </script>
+
+        <form onsubmit="return onSubmit()">
+            Enter a string:
+            <input type="text" class="textbox" id="inputString">
+            <input type="submit" value="Submit" class="submit">
+        </form>
+
+    </div>
+
+</body>
+
+</html>

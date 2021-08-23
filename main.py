@@ -1,5 +1,7 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from flask import request
+from flask_cors import CORS, cross_origin
+
 from threading import Thread
 
 import pandas
@@ -54,16 +56,26 @@ stacking_model_concat.train_and_score(X_test, y_test)
 
 print("End Training")
 
-app = Flask('')
+app = Flask(
+  __name__,
+	template_folder='templates',
+  static_url_path="/static"
+)
+CORS(app, support_credentials=True)
 
 @app.route("/")
+@cross_origin(supports_credentials=True)
 def home():
-  return "Welcome to my Emotion Classifier API! You can use it to find the emotion for a string. It will classify the string as one of sadness, surprise, fear, anger, joy, love. Sample get request: emotion-classifier.shuhaibmehri.repl.co/classifyemotion?string=I%27m%20so%20excited%20to%20try%20this%20out"
+  return render_template(
+		'index.html')
 
-@app.route("/classifyemotion")
+@app.route("/api")
+@cross_origin(supports_credentials=True)
 def find_emotion():
     word = request.args.get('string')
-    return jsonify({"emotion":stacking_model_concat.predictInput(word, cv)[0]})
+    return jsonify({
+      "emotion":stacking_model_concat.predictInput(word, cv)[0]
+      })
 
 def run():
   app.run(host='0.0.0.0',port=7000)
