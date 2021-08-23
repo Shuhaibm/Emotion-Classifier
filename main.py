@@ -52,8 +52,6 @@ base_models = [nb,rf,lr]
 stacking_model_concat = my_stacking_concatenated(base_models)
 stacking_model_concat.train_and_score(X_test, y_test)
 
-
-
 print("End Training")
 
 app = Flask(

@@ -3,11 +3,7 @@
 <html>
 
 <head>
-    
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
-
-
-    <script src="index.js"></script>
 </head>
 <body>
 
@@ -24,17 +20,13 @@
 
             It can be used to find the emotion of a string. It will classify the string as one of the following:
         <ul>
-            <li>sadness</li>
-            <li>surprise</li>
-            <li>fear</li>
-            <li>anger</li>
-            <li>joy</li>
-            <li>love</li>
+            <li>sadness, surprise, fear, anger, joy, love</li>
         </ul>
         <br>
         It is a Stacking Ensemble Model with 90.55% accuracy:
         <ul>
             <li>Base Models: Naïve Bayes, Random Forest as well as Logistic Regression for the Base Models</li>
+            
             <li>Meta Model: Random Forest, data concatenated with base model predictions</li>
         </ul>
         </p>

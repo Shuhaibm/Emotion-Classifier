@@ -38,10 +38,12 @@ small, .text_small {font-size: 0.8rem;}
     text-align: center;
 }
 
+
 .left{
     left:1vw;
     width:48%;
     position:fixed;
+    height:150vh;
 }
 .right{
     right:1vw;
